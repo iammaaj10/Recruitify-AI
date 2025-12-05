@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 interface MatchResponse {
   matchScore: number;
@@ -8,72 +8,67 @@ interface MatchResponse {
 }
 
 const Dashboard: React.FC = () => {
-  const [resumeText, setResumeText] = useState<string>('');
-  const [jdText, setJdText] = useState<string>('');
+  const [resumeText, setResumeText] = useState<string>("");
+  const [jdText, setJdText] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [result, setResult] = useState<MatchResponse | null>(null);
-  const [error, setError] = useState<string>('');
-
+  const [error, setError] = useState<string>("");
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!resumeText.trim() || !jdText.trim()) {
-      setError('Please fill in both resume and job description fields');
+      setError("Please fill in both resume and job description fields");
       return;
     }
 
     setLoading(true);
-    setError('');
+    setError("");
     setResult(null);
 
     try {
-      const response = await fetch('http://localhost:5000/api/match', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          resumeText,
-          jdText,
-        }),
+      const response = await fetch(`${API_BASE_URL}/api/match`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ resumeText, jdText }),
       });
 
       if (!response.ok) {
-        throw new Error('Failed to get match results');
+        throw new Error("Failed to get match results");
       }
 
       const data: MatchResponse = await response.json();
       setResult(data);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
+      setError(err instanceof Error ? err.message : "An error occurred");
     } finally {
       setLoading(false);
     }
   };
 
   const handleReset = () => {
-    setResumeText('');
-    setJdText('');
+    setResumeText("");
+    setJdText("");
     setResult(null);
-    setError('');
+    setError("");
   };
 
   const getScoreColor = (score: number): string => {
-    if (score >= 70) return 'border-green-500 text-green-600';
-    if (score >= 40) return 'border-orange-500 text-orange-600';
-    return 'border-red-500 text-red-600';
+    if (score >= 70) return "border-green-500 text-green-600";
+    if (score >= 40) return "border-orange-500 text-orange-600";
+    return "border-red-500 text-red-600";
   };
 
   const getScoreLabel = (score: number): string => {
-    if (score >= 70) return 'Good Match';
-    if (score >= 40) return 'Average Match';
-    return 'Low Match';
+    if (score >= 70) return "Good Match";
+    if (score >= 40) return "Average Match";
+    return "Low Match";
   };
 
   const getScoreBgColor = (score: number): string => {
-    if (score >= 70) return 'bg-green-50';
-    if (score >= 40) return 'bg-orange-50';
-    return 'bg-red-50';
+    if (score >= 70) return "bg-green-50";
+    if (score >= 40) return "bg-orange-50";
+    return "bg-red-50";
   };
 
   return (
@@ -94,8 +89,8 @@ const Dashboard: React.FC = () => {
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Resume Input */}
             <div className="space-y-2">
-              <label 
-                htmlFor="resume" 
+              <label
+                htmlFor="resume"
                 className="block text-lg font-semibold text-gray-700"
               >
                 Your Resume
@@ -113,8 +108,8 @@ const Dashboard: React.FC = () => {
 
             {/* Job Description Input */}
             <div className="space-y-2">
-              <label 
-                htmlFor="jd" 
+              <label
+                htmlFor="jd"
                 className="block text-lg font-semibold text-gray-700"
               >
                 Job Description
@@ -147,13 +142,25 @@ const Dashboard: React.FC = () => {
                 {loading ? (
                   <span className="flex items-center justify-center gap-2">
                     <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                        fill="none"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      />
                     </svg>
                     Analyzing...
                   </span>
                 ) : (
-                  '🔍 Check Match'
+                  "🔍 Check Match"
                 )}
               </button>
               <button
@@ -172,8 +179,18 @@ const Dashboard: React.FC = () => {
             <div className="mt-12 space-y-8 animate-fadeIn">
               {/* Score Section */}
               <div className="flex justify-center">
-                <div className={`w-48 h-48 rounded-full border-8 ${getScoreColor(result.matchScore)} ${getScoreBgColor(result.matchScore)} flex flex-col items-center justify-center shadow-lg`}>
-                  <span className={`text-5xl font-bold ${getScoreColor(result.matchScore)}`}>
+                <div
+                  className={`w-48 h-48 rounded-full border-8 ${getScoreColor(
+                    result.matchScore
+                  )} ${getScoreBgColor(
+                    result.matchScore
+                  )} flex flex-col items-center justify-center shadow-lg`}
+                >
+                  <span
+                    className={`text-5xl font-bold ${getScoreColor(
+                      result.matchScore
+                    )}`}
+                  >
                     {result.matchScore}%
                   </span>
                   <span className="text-sm text-gray-600 mt-2">
@@ -200,7 +217,9 @@ const Dashboard: React.FC = () => {
                         </span>
                       ))
                     ) : (
-                      <p className="text-gray-500 italic">No matching skills found</p>
+                      <p className="text-gray-500 italic">
+                        No matching skills found
+                      </p>
                     )}
                   </div>
                 </div>
@@ -221,7 +240,9 @@ const Dashboard: React.FC = () => {
                         </span>
                       ))
                     ) : (
-                      <p className="text-gray-500 italic">You have all required skills!</p>
+                      <p className="text-gray-500 italic">
+                        You have all required skills!
+                      </p>
                     )}
                   </div>
                 </div>
@@ -232,9 +253,7 @@ const Dashboard: React.FC = () => {
                 <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
                   💡 Feedback & Recommendations
                 </h3>
-                <p className="text-lg leading-relaxed">
-                  {result.feedback}
-                </p>
+                <p className="text-lg leading-relaxed">{result.feedback}</p>
               </div>
             </div>
           )}
