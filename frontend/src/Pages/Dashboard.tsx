@@ -137,7 +137,7 @@ const Dashboard: React.FC = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="px-8 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-indigo-700 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all transform hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
+                className="px-8 py-3 bg-linear-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-indigo-700 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all transform hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
               >
                 {loading ? (
                   <span className="flex items-center justify-center gap-2">
@@ -249,7 +249,7 @@ const Dashboard: React.FC = () => {
               </div>
 
               {/* Feedback Section */}
-              <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-8 text-white shadow-xl">
+              <div className="bg-linear-to-r from-purple-600 to-indigo-600 rounded-2xl p-8 text-white shadow-xl">
                 <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
                   💡 Feedback & Recommendations
                 </h3>
