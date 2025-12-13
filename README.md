@@ -1,89 +1,82 @@
-🚀 Recruitify AI — Intelligent Resume–JD Matcher
-🔍 Smart AI engine that compares your Resume with a Job Description and instantly gives:
+🚀 Recruitify AI — Intelligent Resume–Job Description Matcher
+
+🔍 A smart AI engine that analyzes your resume against a job description and instantly delivers actionable insights.
 
 ✔️ Match Score
 ✔️ Matched Skills
 ✔️ Missing Skills
-✔️ Actionable Feedback
+✔️ Personalized Feedback
 
-Live Demo: https://your-vercel-link.vercel.app
-
+🌐 Live Demo: https://your-vercel-link.vercel.app
+------------------------
 ⭐ Overview
 
-Recruitify AI is an AI-powered web application that evaluates how well a candidate’s resume matches a job description. It uses NLP (Natural Language Processing) techniques such as text preprocessing, TF-IDF vectorization, cosine similarity, and rule-based skill extraction to generate a match score and provide skill-based insights.
+Recruitify AI is an AI-powered web application designed to evaluate how closely a candidate’s resume aligns with a given job description. By leveraging Natural Language Processing (NLP) techniques such as text preprocessing, TF-IDF vectorization, cosine similarity, and rule-based skill extraction, the platform generates an accurate match score along with clear skill-level insights.
 
-This project is built using:
-
-React + TypeScript (Vite) → Frontend
-
-Flask + Python (NLP) → Backend
-
-Render → Backend Deployment
-
-Vercel → Frontend Hosting
-
-✨ Features
+This tool helps candidates understand their strengths, identify skill gaps, and optimize their resumes for better job alignment.
+--------------------------------------
+🏗️ System Architecture
+React Frontend (Vercel)
+        ↓ Sends Resume & JD
+Flask API (Render)
+        ↓ NLP Processing
+   • Text Preprocessing
+   • TF-IDF Vectorization
+   • Cosine Similarity
+   • Skill Extraction
+        ↓ JSON Response
+Frontend UI Displays Results
+---------------------------------------------------
+✨ Key Features
 🔹 Resume–JD Match Score
 
-Calculates similarity using TF-IDF + cosine similarity + skill alignment logic.
+Calculates resume–JD similarity using TF-IDF + cosine similarity enhanced with skill alignment logic.
 
 🔹 Skill Extraction
 
-Extracts technical skills from both resume & JD using a predefined skill dictionary.
+Identifies technical skills from both the resume and job description using a predefined skill dictionary.
 
 🔹 Matched & Missing Skill Visualization
 
-Clearly highlights skills you have vs. skills required for the job.
+Clearly distinguishes between skills you possess and skills required for the job, helping users focus on improvement areas.
 
 🔹 Personalized Feedback
 
-Generates human-friendly suggestions on how to improve your resume for the JD.
+Generates human-friendly recommendations to improve resume relevance and job readiness.
 
 🔹 Clean & Modern UI
 
-Built with TailwindCSS and React, fully responsive.
+Built with React and TailwindCSS, delivering a responsive and intuitive user experience.
 
-🔹 Deployed Frontend + Backend
+🔹 Full-Stack Deployment
 
-Frontend on Vercel, Backend on Render.
+Frontend deployed on Vercel, backend NLP API hosted on Render.
+--------------------------------------------------
+🛠️ Tech Stack
 
-🏗️ Tech Stack
 🎨 Frontend
-
 React (TypeScript)
-
 Vite
-
 TailwindCSS
-
 Fetch API
 
 🧠 Backend
-
 Python
-
 Flask
-
 scikit-learn (TF-IDF & cosine similarity)
+NLTK (stopword removal)
+Regex-based skill extraction
 
-NLTK (stopwords)
-
-Regex skill extraction logic
 
 ☁️ Deployment
+Vercel — Frontend Hosting
+Render — Backend API Hosting
+------------------------------------------
 
-Vercel (Frontend)
+🎯 Use Case
+Recruitify AI assists:
+Job seekers optimizing resumes
+Freshers identifying skill gaps
+Developers tailoring resumes for specific roles
 
-Render (Backend API)
-
-🔧 Architecture
-React Frontend (Vercel)
-        ↓ Sends resume & JD
-Flask API (Render)
-        ↓ NLP Processing
-  • Preprocessing
-  • TF-IDF Vectorization
-  • Cosine Similarity
-  • Skill Extraction
-        ↓ Returns JSON
-Frontend UI displays results
+By providing instant, data-driven feedback, it bridges the gap between resumes and job expectations.
