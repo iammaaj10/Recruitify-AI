@@ -94,7 +94,7 @@ const Dashboard: React.FC = () => {
           <header className="text-center mb-12 relative">
             <div className="inline-flex items-center justify-center mb-4">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl blur-lg opacity-50 animate-pulse"></div>
+                <div className="absolute inset-0 bg-linear-to-r from-purple-600 to-indigo-600 rounded-2xl blur-lg opacity-50 animate-pulse"></div>
                 <div className="relative bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-4">
                   <Sparkles className="w-12 h-12 text-white" />
                 </div>
