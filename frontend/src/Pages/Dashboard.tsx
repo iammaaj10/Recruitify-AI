@@ -95,12 +95,12 @@ const Dashboard: React.FC = () => {
             <div className="inline-flex items-center justify-center mb-4">
               <div className="relative">
                 <div className="absolute inset-0 bg-linear-to-r from-purple-600 to-indigo-600 rounded-2xl blur-lg opacity-50 animate-pulse"></div>
-                <div className="relative bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-4">
+                <div className="relative bg-linear-to-r from-purple-600 to-indigo-600 rounded-2xl p-4">
                   <Sparkles className="w-12 h-12 text-white" />
                 </div>
               </div>
             </div>
-            <h1 className="text-5xl md:text-6xl font-black bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-4 tracking-tight">
+            <h1 className="text-5xl md:text-6xl font-black bg-linear-to-r from-purple-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-4 tracking-tight">
               Recruitify AI
             </h1>
             <p className="text-xl text-gray-600 font-medium max-w-2xl mx-auto">
@@ -127,7 +127,7 @@ const Dashboard: React.FC = () => {
                   htmlFor="resume"
                   className="flex items-center gap-2 text-lg font-bold text-gray-800"
                 >
-                  <div className="p-2 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-lg group-hover:scale-110 transition-transform">
+                  <div className="p-2 bg-linear-to-br from-purple-100 to-indigo-100 rounded-lg group-hover:scale-110 transition-transform">
                     <Upload className="w-5 h-5 text-purple-600" />
                   </div>
                   Your Resume
@@ -154,7 +154,7 @@ const Dashboard: React.FC = () => {
                   htmlFor="jd"
                   className="flex items-center gap-2 text-lg font-bold text-gray-800"
                 >
-                  <div className="p-2 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-lg group-hover:scale-110 transition-transform">
+                  <div className="p-2 bg-linear-to-br from-indigo-100 to-purple-100 rounded-lg group-hover:scale-110 transition-transform">
                     <Briefcase className="w-5 h-5 text-indigo-600" />
                   </div>
                   Job Description
@@ -178,7 +178,7 @@ const Dashboard: React.FC = () => {
 
             {/* Error Message */}
             {error && (
-              <div className="bg-gradient-to-r from-red-50 to-rose-50 border-l-4 border-red-500 text-red-700 p-5 rounded-2xl shadow-lg animate-shake">
+              <div className="bg-linear-to-r from-red-50 to-rose-50 border-l-4 border-red-500 text-red-700 p-5 rounded-2xl shadow-lg animate-shake">
                 <div className="flex items-center gap-3">
                   <XCircle className="w-5 h-5 flex-shrink-0" />
                   <p className="font-semibold">{error}</p>
@@ -191,9 +191,9 @@ const Dashboard: React.FC = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="group relative px-10 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold rounded-2xl hover:from-purple-700 hover:to-indigo-700 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all transform hover:-translate-y-1 hover:shadow-2xl disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none overflow-hidden"
+                className="group relative px-10 py-4 bg-linear-to-r from-purple-600 to-indigo-600 text-white font-bold rounded-2xl hover:from-purple-700 hover:to-indigo-700 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all transform hover:-translate-y-1 hover:shadow-2xl disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-indigo-400 opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                <div className="absolute inset-0 bg-linear-to-r from-purple-400 to-indigo-400 opacity-0 group-hover:opacity-20 transition-opacity"></div>
                 {loading ? (
                   <span className="flex items-center justify-center gap-3">
                     <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
@@ -225,7 +225,7 @@ const Dashboard: React.FC = () => {
                 type="button"
                 onClick={handleReset}
                 disabled={loading}
-                className="px-10 py-4 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-bold rounded-2xl hover:from-gray-700 hover:to-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 transition-all transform hover:-translate-y-1 hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
+                className="px-10 py-4 bg-linear-to-r from-gray-600 to-gray-700 text-white font-bold rounded-2xl hover:from-gray-700 hover:to-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 transition-all transform hover:-translate-y-1 hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
               >
                 🔄 Start Over
               </button>
@@ -238,7 +238,7 @@ const Dashboard: React.FC = () => {
               {/* Score Section */}
               <div className="flex justify-center">
                 <div className="relative">
-                  <div className={`absolute inset-0 bg-gradient-to-r ${getScoreGradient(result.matchScore)} rounded-full blur-2xl opacity-30 animate-pulse`}></div>
+                  <div className={`absolute inset-0 bg-linear-to-r ${getScoreGradient(result.matchScore)} rounded-full blur-2xl opacity-30 animate-pulse`}></div>
                   <div
                     className={`relative w-56 h-56 rounded-full border-8 ${getScoreColor(
                       result.matchScore
@@ -263,7 +263,7 @@ const Dashboard: React.FC = () => {
               {/* Skills Section */}
               <div className="grid md:grid-cols-2 gap-8">
                 {/* Matched Skills */}
-                <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-8 border-2 border-emerald-200 shadow-xl hover:shadow-2xl transition-shadow">
+                <div className="bg-linear-to-br from-emerald-50 to-teal-50 rounded-3xl p-8 border-2 border-emerald-200 shadow-xl hover:shadow-2xl transition-shadow">
                   <h3 className="text-2xl font-black text-gray-800 mb-6 flex items-center gap-3">
                     <div className="p-2 bg-emerald-200 rounded-xl">
                       <CheckCircle className="w-6 h-6 text-emerald-700" />
@@ -289,7 +289,7 @@ const Dashboard: React.FC = () => {
                 </div>
 
                 {/* Missing Skills */}
-                <div className="bg-gradient-to-br from-rose-50 to-pink-50 rounded-3xl p-8 border-2 border-rose-200 shadow-xl hover:shadow-2xl transition-shadow">
+                <div className="bg-linear-to-br from-rose-50 to-pink-50 rounded-3xl p-8 border-2 border-rose-200 shadow-xl hover:shadow-2xl transition-shadow">
                   <h3 className="text-2xl font-black text-gray-800 mb-6 flex items-center gap-3">
                     <div className="p-2 bg-rose-200 rounded-xl">
                       <XCircle className="w-6 h-6 text-rose-700" />
@@ -317,7 +317,7 @@ const Dashboard: React.FC = () => {
               </div>
 
               {/* Feedback Section */}
-              <div className="relative overflow-hidden bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 rounded-3xl p-10 text-white shadow-2xl">
+              <div className="relative overflow-hidden bg-linear-to-r from-purple-600 via-indigo-600 to-purple-600 rounded-3xl p-10 text-white shadow-2xl">
                 <div className="absolute inset-0 bg-grid-white/10"></div>
                 <div className="relative">
                   <h3 className="text-3xl font-black mb-6 flex items-center gap-3">
